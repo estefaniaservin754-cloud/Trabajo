@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Regisro de empleo</title>
+</head>
+<body>
+
+  <h2>Regisro de empleo</h2>
+
+  <form id="formulario" action="https://script.google.com/macros/s/AKfycbxs3gpr2GQDZS3uO3FPztb_0uTqd7-ixgO83JSskoMQLFF_abaqjpfgkXBgB8WFLNlXmQ/exec" method="POST" target="hidden_iframe" onsubmit="enviado()">
+    <label for="nombre">Nombre:</label><br>
+    <input type="text" id="nombre" name="nombre" required><br><br>
+
+    <label for="edad">Edad:</label><br>
+    <input type="number" id="edad" name="edad" required min="1" max="120"><br><br>
+
+    <label for="direccion">Direccion:</label><br>
+    <input type="text" id="direccion" name="direccion" required><br><br>
+
+    <label for="experiencia">Trabajos anteriores:</label><br>
+     <input type="number" id="experiencia" name="experiencia" required min="0" max="50"><br><br>
+
+<label for="identificacion">identificacion:</label><br>
+    <input type="text" id="identificacion" name="identificacion" required><br><br>
+
+<label for="razon">Porque quieren trabajos con nosotros::</label><br>
+    <input type="text" id="razon" name="razon" required><br><br>
+
+<label for="telefono">Numero de telefono:</label><br>
+    <input type="text" id="telefono" name="telefono" required><br><br>
+
+
+    <button type="submit" id="btnEnviar">Enviar</button>
+  </form>
+
+  <p id="estado"></p>
+
+  <iframe name="hidden_iframe" id="hidden_iframe" style="display:none;"></iframe>
+
+  <script>
+    function enviado() {
+      document.getElementById('btnEnviar').disabled = true;
+      document.getElementById('estado').textContent = 'Guardando...';
+      
+      setTimeout(function() {
+        document.getElementById('estado').textContent = '¡Registro guardado con éxito!';
+        document.getElementById('formulario').reset();
+        document.getElementById('btnEnviar').disabled = false;
+      }, 1500);
+    }
+  </script>
+
+</body>
+</html>
